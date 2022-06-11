@@ -34,17 +34,19 @@ from huaytools.utils import get_logger, get_time_string, get_attr, set_attr, get
 from huaytools.pytorch.utils import set_seed
 
 
+_ARGS = 'args'
+
+
 class Trainer:
     """
     Notes:
-        1. 关于的 BaseTrainer 的成员说明
-            BaseTrainer 内部的成员分为三类（均可以通过 self.xxx 进行访问）：
-                一类是 model、optimizer、scheduler、data 等复杂对象；
-                一类是 learning_rate、num_train_epochs 等超参数，这部分成员统一保存在 self.args 中，
-                    并通过重写 `__getattr__` 使支持 `self.xxx` 等价于 `self.args.xxx`；
-                一类是训练过程中的内部状态，如 batch_idx、global_step 等；
+        关于的 Trainer 的成员说明
+            Trainer 内部的成员分为三类（均可以通过 self.xxx 进行访问）：
+                一是 model、optimizer、scheduler、data 等复杂对象；
+                二是 learning_rate、num_train_epochs 等超参数，这部分成员统一保存在 self.args 中，
+                    并通过重写 `__getattribute__` 使 `self.xxx` 等价于 `self.args.xxx`；
+                三是训练过程中的内部状态，如 batch_idx、global_step 等；
             对于继承 BaseTrainer 的类，如果
-
     """
     logger = get_logger()
     args = BunchDict()
@@ -336,6 +338,33 @@ class Trainer:
             self._set_args(value)
         return value
 
-    def __getattr__(self, item):
-        """"""
-        return get_attr(self.args, item)
+    # def __getattr__(self, item):
+    #     """"""
+    #     return get_attr(self.args, item)
+
+    def __getattribute__(self, item):
+        """
+        Notes:
+            为什么用 __getattribute__ 而不是 `__getattr__`？
+                首先明确两者的区别，`__getattribute__` 优先级高于 `__getattr__`，只有当前者找不到时，才会调用后者；
+                其次见以下示例：
+                ```python
+                # 某个自定义 Trainer
+                class MyTrainer(Trainer):
+                    a = 1  # 某个超参数
+                    ...
+
+                # 实例化该 trainer
+                trainer = MyTrainer(a=2)
+                print(trainer.a)  # 2
+                ```
+                根据直觉，以上代码的意思应该是 `trainer.a` 的默认值为 1，并初始化为 2；
+                如果使用 `__getattr__`，那么 `a=1` 的优先级将高于 `a=2`，导致 `self.a == 1` 而 `self.args.a == 2`，与期望不符，
+                因此这里要用 `__getattribute__`，并优先访问 `self.args` 中的值。
+
+            注意：在 `__getattribute__` 中调用 `self.xxx` 可能会造成无限递归。
+        """
+        if item == _ARGS:
+            return super().__getattribute__(item)  # return self.args 会导致死循环
+        else:
+            return get_attr(self.args, item, super().__getattribute__(item))
