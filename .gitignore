@@ -1,0 +1,26 @@
+# 文件夹
+.idea/
+.pytest_cache/
+.ipynb_checkpoints/
+__pycache__/
+pkgs/
+ckpt/
+_book/
+
+# 临时文件
+*.iml
+*.DS_Store
+*.pyc
+-*
+_test.sh
+
+# 指定文件
+nohup.out
+mt_*
+.obsidian/workspace
+# git_push.sh
+# git_pull.sh
+
+# 排除文件
+!placeholder
+!README.md

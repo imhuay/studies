@@ -1,0 +1,39 @@
+# python
+python>=3.8
+
+# base
+ipykernel
+markdown
+packaging
+python-levenshtein
+pyyaml
+requests
+sortedcollections
+sortedcontainers
+tqdm
+
+# ml
+numpy
+scikit-learn
+
+# nlp
+jieba
+hanlp
+gensim
+opencc
+
+# pytorch
+accelerate
+
+torch
+torchtext
+
+# huggingface
+transformers~=4.8
+datasets
+-e git+https://github.com/huggingface/evaluate.git#egg=evaluate
+
+# tensorflow
+keras
+bert4keras
+tensorflow>=2.3
