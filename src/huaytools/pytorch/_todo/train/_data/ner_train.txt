@@ -1,0 +1,26 @@
+美	B-LOC
+国	I-LOC
+的	O
+华	B-PER
+莱	I-PER
+士	I-PER
+
+1	B-TIME
+9	I-TIME
+9	I-TIME
+3	I-TIME
+年	I-TIME
+，
+我
+出
+生
+在
+北	B-LOC
+京	I-LOC
+
+我
+现
+在
+在
+上	B-LOC
+海	I-LOC
