@@ -27,7 +27,7 @@ from torch.utils.data import DataLoader
 from datasets import load_dataset
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-from huaytools.pytorch.train.trainer import BaseTrainer
+from huaytools.pytorch.train.trainer import Trainer
 
 
 def get_sst2_dataloader(model_name='roberta-base', batch_size=32):
@@ -49,7 +49,7 @@ def get_sst2_dataloader(model_name='roberta-base', batch_size=32):
     return dl_train, dl_val
 
 
-class Trainer(BaseTrainer):
+class MyTrainer(Trainer):
     accuracy = evaluate.load("accuracy")
     loss_fn = nn.CrossEntropyLoss()
 
@@ -83,7 +83,7 @@ class Trainer(BaseTrainer):
 
 def main():
     model_name = r'roberta-base'
-    trainer = Trainer(batch_size=32, model_name=model_name)
+    trainer = MyTrainer(batch_size=32, model_name=model_name)
     trainer.train()
 
 

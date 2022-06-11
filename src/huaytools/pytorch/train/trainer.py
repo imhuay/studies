@@ -34,8 +34,18 @@ from huaytools.utils import get_logger, get_time_string, get_attr, set_attr, get
 from huaytools.pytorch.utils import set_seed
 
 
-class BaseTrainer(ABC):
-    """"""
+class Trainer:
+    """
+    Notes:
+        1. 关于的 BaseTrainer 的成员说明
+            BaseTrainer 内部的成员分为三类（均可以通过 self.xxx 进行访问）：
+                一类是 model、optimizer、scheduler、data 等复杂对象；
+                一类是 learning_rate、num_train_epochs 等超参数，这部分成员统一保存在 self.args 中，
+                    并通过重写 `__getattr__` 使支持 `self.xxx` 等价于 `self.args.xxx`；
+                一类是训练过程中的内部状态，如 batch_idx、global_step 等；
+            对于继承 BaseTrainer 的类，如果
+
+    """
     logger = get_logger()
     args = BunchDict()
 
@@ -138,14 +148,32 @@ class BaseTrainer(ABC):
 
         self.on_after_train()
 
-    @abstractmethod
     def training_step(self, batch) -> Union[Tensor, Tuple[Tensor, ...]]:
         """
         Returns:
             1.单独返回 loss；
             2.如果有多个返回值，loss 放在最后一个
         """
-        raise NotImplementedError
+        try:
+            if isinstance(batch, Dict):
+                outputs = self.model(**batch)
+            elif isinstance(batch, (List, Tuple)):
+                outputs = self.model(*batch)
+            else:
+                outputs = self.model(batch)
+        except:
+            raise NotImplementedError(f'Default `{self.training_step.__name__}` cannot parse the model and batch, '
+                                      f'overwriting it to define how the model read batch. '
+                                      f'If there are more than one outputs, put the loss at last.')
+
+        if isinstance(outputs, Tensor):
+            outputs = (outputs,)
+        elif isinstance(outputs, (List, Tuple)) and isinstance(outputs[-1], Tensor):
+            outputs = tuple(outputs)
+        else:
+            raise TypeError(f'The {self.training_step.__name__} should return `loss` or `(..., loss)`')
+
+        return outputs
 
     def loss_backward(self):
         """"""
@@ -246,8 +274,6 @@ class BaseTrainer(ABC):
         """"""
         os.makedirs(self.save_dir, exist_ok=True)
         save_obj = self.model.state_dict() if self.save_model_state_dict else self.model
-        if self.model_name is None:
-            self.model_name = f'{self.model.__class__.__name__}_{get_time_string()}.pt'
         model_save_path = os.path.join(self.save_dir, self.model_name)
         config_save_path = os.path.join(self.save_dir, 'config.json')
 
@@ -262,7 +288,7 @@ class BaseTrainer(ABC):
         def default(batch_loss):
             try:
                 return batch_loss.item()
-            except:
+            except:  # noqa
                 return float('nan')
 
         self.batches.set_postfix(loss=default(self.batch_loss))
@@ -292,7 +318,6 @@ class BaseTrainer(ABC):
             value = self.num_train_epochs * math.ceil(
                 len(self.data_train) / self.num_gradient_accumulation)
             self._set_args(value)
-
         return value
 
     @property
@@ -300,6 +325,14 @@ class BaseTrainer(ABC):
         value = self._get_args()
         if value is None:
             value = self.num_train_steps * 0.1
+            self._set_args(value)
+        return value
+
+    @property
+    def model_name(self):
+        value = self._get_args()
+        if value is None:
+            value = f'{self.model.__class__.__name__}_{get_time_string()}.pt'
             self._set_args(value)
         return value
 

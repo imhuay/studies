@@ -9,4 +9,4 @@ Subject:
 
 """
 
-from .trainer import BaseTrainer
+from .trainer import Trainer
