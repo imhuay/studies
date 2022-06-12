@@ -40,13 +40,31 @@ _ARGS = 'args'
 class Trainer:
     """
     Notes:
-        关于的 Trainer 的成员说明
-            Trainer 内部的成员分为三类（均可以通过 self.xxx 进行访问）：
+        关于的 Trainer 的成员变量说明
+            Trainer 内部的成员变量分为三类（均可以通过 self.xxx 进行访问）：
                 一是 model、optimizer、scheduler、data 等复杂对象；
                 二是 learning_rate、num_train_epochs 等超参数，这部分成员统一保存在 self.args 中，
                     并通过重写 `__getattribute__` 使 `self.xxx` 等价于 `self.args.xxx`；
                 三是训练过程中的内部状态，如 batch_idx、global_step 等；
-            对于继承 BaseTrainer 的类，如果
+
+        对继承 Trainer 的子类，如果需要添加新的成员变量，一般以下几种方式：
+            ```python
+            class MyTrainer(Trainer):
+                a = 1  # 法1，推荐
+                def __init__(self, b=2, c=3):
+                    self.b = b  # 法2
+                    self.args.c = c  # 法3
+                    super().__init__()
+                ...
+
+            trainer = MyTrainer(d=4)  # 法4，推荐
+            trainer.e = 5  # 法5
+
+            t = MyTrainer(a=10, b=20)  # 这样写会将 a 添加到 self.args 中，但 b 不会
+            ```
+            其中 法3、4 会将新成员添加到 `self.args` 中，法1、2、5 不会；
+            这里推荐 法1 和 法4 的写法；
+            ```
     """
     logger = get_logger()
     args = BunchDict()
