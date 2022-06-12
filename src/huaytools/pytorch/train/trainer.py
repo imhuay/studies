@@ -279,7 +279,7 @@ class Trainer:
         model_save_path = os.path.join(self.save_dir, self.model_name)
         config_save_path = os.path.join(self.save_dir, 'config.json')
 
-        # 保存模型，以及训练参数
+        # 保存模型和参数
         torch.save(save_obj, model_save_path, _use_new_zipfile_serialization=not self.save_model_old_format)
         self.save(config_save_path)
         self.logger.info(f'model saved at {model_save_path}')
@@ -296,7 +296,7 @@ class Trainer:
         self.batches.set_postfix(loss=default(self.batch_loss))
 
     def _set_progressbar_description(self):
-        """ 更新进度条描述
+        """ 进度条描述
         默认格式: Global Step[02/39] - Epoch(1/10):  23%|██▎       | 3/13 [00:05<00:16,  1.60s/it, loss=6.24]
         """
         self.batches.set_description(
@@ -362,9 +362,9 @@ class Trainer:
                 如果使用 `__getattr__`，那么 `a=1` 的优先级将高于 `a=2`，导致 `self.a == 1` 而 `self.args.a == 2`，与期望不符，
                 因此这里要用 `__getattribute__`，并优先访问 `self.args` 中的值。
 
-            注意：在 `__getattribute__` 中调用 `self.xxx` 可能会造成无限递归。
+            注意：在 `__getattribute__` 中调用 `self.xxx` 且 `xxx` 为成员变量时可能会造成无限递归。
         """
         if item == _ARGS:
-            return super().__getattribute__(item)  # return self.args 会导致死循环
+            return super().__getattribute__(item)  # return self.args 会导致无限递归
         else:
             return get_attr(self.args, item, super().__getattribute__(item))
