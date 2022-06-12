@@ -21,10 +21,6 @@ import requests
 from typing import *
 from datetime import datetime
 
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
-                    datefmt='%Y.%m.%d %H:%M:%S',
-                    level=logging.INFO)
-
 from huaytools.utils.xls_helper import XLSHelper
 from huaytools.utils.find_best_threshold import find_best_threshold_binary
 from huaytools.utils.special_json import (
@@ -45,6 +41,38 @@ from huaytools.utils.serialize_helper import (
     file_to_str,
     str_to_file
 )
+
+logging.basicConfig(format='%(asctime)s - %(levelname)s - %(name)s - %(message)s',
+                    datefmt='%Y.%m.%d %H:%M:%S',
+                    level=logging.INFO)
+
+
+def is_complex_type(obj, simple_type=(int, str, float)):
+    """
+    判断是否复杂类型
+        黑名单机制，不是 simple_type 的都是复杂类型
+
+    Args:
+        obj:
+        simple_type:
+
+    Returns: bool
+
+    Examples:
+        >>> is_complex_type(is_complex_type)
+        True
+        >>> its = (1, 1.0, 's', [1,2,'1'], {'1':[1,'c']})
+        >>> all(not is_complex_type(it) for it in its)  # noqa
+        True
+    """
+    if isinstance(obj, simple_type):
+        return False
+    elif isinstance(obj, (list, tuple)):
+        return all(is_complex_type(it) for it in obj)
+    elif isinstance(obj, dict):
+        return all(is_complex_type(k) and is_complex_type(v) for k, v in obj.items())
+    else:
+        return True
 
 
 def merge_intersected_sets(src: List[Set]):
