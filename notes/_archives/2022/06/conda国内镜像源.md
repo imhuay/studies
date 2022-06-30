@@ -18,8 +18,14 @@ conda config --remove channels $channel
 # main
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+
 # special
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
 https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/
 https://mirrors.tuna.tsinghua.edu.cn/tensorflow/linux/cpu/
 ```
+
+## 其他源
+- 豆瓣源
+- 阿里源
+- ...
