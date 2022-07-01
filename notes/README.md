@@ -6,4 +6,4 @@
 - 可以使用 obsidian 软件查看文件之间的**链接图谱**；
     - 为了兼容 GitHub，没有使用 obsidian 默认的链接格式；
     - obsidian [下载地址](https://obsidian.md/)
-    - obsidian [常用设置](_archives/2022/05/Obsidian.md)
+    - obsidian [常用设置](./_archives/2022/05/Obsidian.md)
