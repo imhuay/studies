@@ -9,7 +9,8 @@ Python
 ## 工具
 
 ### Pycharm
-- [常用插件列表](./_archives/2022/07/Pycharm常用插件.md)
+- [Pycharm 常用配置](./_archives/2022/07/PyCharm常用配置.md)
+    - [常用插件列表](./_archives/2022/07/PyCharm常用配置.md#常用插件)
 
 ### conda
 - [国内镜像源](./_archives/2022/06/conda国内镜像源.md)
