@@ -23,7 +23,8 @@ PyCharm 常用配置
 > Docstring format -> Google
 
 ### 快捷键修改
-> Plugins -> Marketplace -> Eclipse Keymap
+- 安装插件：Plugins -> Marketplace -> Eclipse Keymap
+- [常用快捷键](./快捷键记录.md#pycharm)
 
 
 ## 代码模板
