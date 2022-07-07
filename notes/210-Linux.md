@@ -15,3 +15,7 @@ Linux
 
 ## 文本处理
 - [`awk` 命令的基本用法](./_archives/2022/06/Linux文本处理之awk.md)
+
+
+## 使用记录
+- [Linux 使用 ssh 超时断开连接的真正原因，及解决方法](http://bluebiu.com/blog/linux-ssh-session-alive.html)
