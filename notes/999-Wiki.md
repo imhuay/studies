@@ -51,13 +51,15 @@ Wiki
 ### GitBook (1)
 > 一款现代化的文档平台，常用于编辑产品文档、知识分享、个人笔记等，支持与 GitHub 自动同步；  
 - 官网网址：[GitBook - Where software teams break knowledge silos.](https://www.gitbook.com/)
+- 本项目的 GitBook 地址：[studies-gitbook](https://imhuay.gitbook.io/studies)
 
 
 ### GitBook (2)
 > 一个基于 Node.js 的命令行工具，使用 Markdown 快速构建文档或书籍；  
 > 目前团队已不再维护，转向 [GitBook 在线平台](#gitbook-1)
-- 官方 GitHub 地址（不再维护）：[GitbookIO/gitbook](https://github.com/GitbookIO/gitbook)
-- [GitBook 使用记录](./_archives/2022/04/Gitbook.md)（旧版命令行版本，已不再维护）
+- 官方 GitHub 地址（已不再维护）：[GitbookIO/gitbook](https://github.com/GitbookIO/gitbook)
+- [GitBook 使用记录](./_archives/2022/04/Gitbook.md)
+    > 对 markdown 和 html 混写支持不佳，已不再使用
 
 
 ## H
