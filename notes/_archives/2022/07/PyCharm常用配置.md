@@ -103,6 +103,6 @@ sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])
 
 ### 【Mac】全屏模式下打开新项目默认在新 Tab 而不是新窗口
 - **问题描述**：在全屏模式下打开新项目，默认在当前窗口的 Tab 页打开，而不是新窗口；这个问题不是因为 PyCharm 导致的，而是 Mac 的设置；
-    <div align="center"><img src="./_assets/pycharm_new_tag_fix.png" height="" /></div>
+    <div align="center"><img src="./_assets/pycharm_tag_fix.png" height="" /></div>
 - **解决方法**：`系统偏好设置 -> 通用 -> 首选以标签页方式打开文稿` 改为 `永不`；
-    <div align="center"><img src="./_assets/pycharm_new_tag_fix2.png" height="" /></div>
+    <div align="center"><img src="./_assets/pycharm_tag_fix2.png" height="" /></div>
