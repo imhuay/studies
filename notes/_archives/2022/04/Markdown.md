@@ -14,10 +14,11 @@ Markdown 备忘
     - [公式对齐](#公式对齐)
 
 
-## 插件
-### 自动更新目录插件（VSCode）
-- 搜索插件 `Markdown All in One`
-- 插入目录 `Shift+Command+P` -> `Create Table of Contents`
+## VSCode 插件
+
+### 自动更新目录插件
+- 插件名称：Markdown All in One
+- 插入目录快捷键： `Shift + Command + P` (Create Table of Contents)
 
 
 ## 编辑
@@ -88,15 +89,21 @@ project
 </table>
 ```
 
-## Latex
-> markdown 专用
-- 在 markdown 内使用：行内使用 `$` 包围，独立行使用 `$$` 包围
+### Latex 语法
+- 在 markdown 内使用：行内使用 `$` 包围，如 $a+b=3$；
+- 独立代码块使用 `$$` 包围，如：
+$$
+    a+b=3
+$$
+- 更多语法见 [Latex 备忘](./LaTeX备忘.md)
 
-### 参考和引用
 
-引用[$^{[1]}$](#ref1)
+### 上标引用
+> 非标准用法，在编辑时不支持跳转，但是转换成 HTML 页面后可以；
 
-<a name="ref1"> $[1]$ </a> [xxx](xxx) <br/>
+示例：百度[$^{[1]}$](#ref1)是一种搜索引擎
+
+<a name="ref1"> $[1]$ </a> [百度一下](https://www.baidu.com) <br/>
 
 ### 公式对齐
 
