@@ -25,15 +25,12 @@ opencc
 # pytorch
 accelerate
 
-torch
-torchtext
-
 # huggingface
-transformers~=4.8
+transformers
 datasets
--e git+https://github.com/huggingface/evaluate.git#egg=evaluate
+evaluate
+# -e git+https://github.com/huggingface/evaluate.git#egg=evaluate
 
 # tensorflow
 keras
 bert4keras
-tensorflow>=2.3
