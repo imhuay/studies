@@ -6,6 +6,10 @@ Python
 - [装饰器的本质](./_archives/2022/05/python装饰器的本质.md)
 - [class method 中 `self` 的含义](./_archives/2022/06/python类方法中self的含义.md)
 
+
+## 最佳实践
+- [类变量、成员变量，与注解](./_archives/2022/07/python类变量和成员变量的最佳实践)
+
 ## 工具
 
 ### Pycharm
