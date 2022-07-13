@@ -17,7 +17,7 @@ Python
     - [常用插件列表](./_archives/2022/07/PyCharm常用配置.md#常用插件)
 
 ### conda
-- [国内镜像源](./_archives/2022/06/conda国内镜像源.md)
+- [国内镜像源](./_archives/2022/06/python国内镜像源.md)
 
 
 ## 参考资料

@@ -48,9 +48,9 @@ Subject:
 import os
 import sys
 import json
-import doctest
 
 from typing import *
+from pathlib import Path
 from collections import defaultdict
 
 
@@ -59,7 +59,16 @@ class __DoctestWrapper:
 
     def __init__(self):
         """"""
+        import doctest
         doctest.testmod()
+
+        for k, v in self.__class__.__dict__.items():
+            if k.startswith('demo') and isinstance(v, Callable):
+                v(self)
+
+    def demo_xxx(self):
+        """"""
+        pass
 
 
 if __name__ == '__main__':
