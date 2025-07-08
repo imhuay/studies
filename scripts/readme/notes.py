@@ -127,7 +127,12 @@ class SubjectInfo:
 @dataclass
 class NoteInfo:
     top: bool = False
-    hidden: bool = False
+    hidden: bool = True
+    
+    # def __post_init__(self):
+    #     """"""
+    #     if self.top:
+    #         self.hidden = False
 
 
 @dataclass
@@ -199,6 +204,8 @@ class Note:
 
     @property
     def is_hidden(self):
+        if self.info.top:
+            return False
         return self.info.hidden
 
     @property
@@ -333,4 +340,4 @@ class NotesBuilder(Builder):
 if __name__ == '__main__':
     """"""
     note = NotesBuilder()
-    note.build()
+    # note.build()

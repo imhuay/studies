@@ -22,12 +22,12 @@ from collections import defaultdict
 
 from huaytools.utils import get_logger
 
-try:
-    sys.path.insert(0, f'{Path(__file__).parent.parent / "src"}')
-except:  # noqa
-    exit(1)
-else:
-    from readme.build import BuildReadme
+# try:
+#     sys.path.insert(0, f'{Path(__file__).parent.parent / "src"}')
+# except:  # noqa
+#     exit(1)
+# else:
+from readme.build import BuildReadme
 
 logger = get_logger()
 
