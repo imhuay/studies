@@ -1,0 +1,23 @@
+[project]
+name = "huaytools"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "imhuay", email = "imhuay@163.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fire>=0.7.0",
+    "pyyaml>=6.0.2",
+]
+
+[project.scripts]
+huaytools = "huaytools:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+index-url = "https://pypi.tuna.tsinghua.edu.cn/simple"

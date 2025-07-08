@@ -8,25 +8,15 @@ Author:
 Subject:
     build_readme
 """
-import os
-import sys
-import json
-import time
-import doctest
-import subprocess
-
-from typing import *
-from pathlib import Path
-from itertools import islice
-from collections import defaultdict
-
-from huaytools.utils import get_logger
 
 # try:
 #     sys.path.insert(0, f'{Path(__file__).parent.parent / "src"}')
+#     from huaytools.utils import get_logger
 # except:  # noqa
 #     exit(1)
-# else:
+
+from huaytools.utils import get_logger
+
 from readme.build import BuildReadme
 
 logger = get_logger()

@@ -16,16 +16,24 @@ import re
 # import json
 # import unittest
 import subprocess
-
+from dataclasses import dataclass, fields
+from datetime import datetime, timedelta, timezone
 # from typing import *
 # from collections import defaultdict
 from pathlib import Path
-from datetime import datetime, timedelta, timezone
-from dataclasses import dataclass, fields
+
+from markdown.extensions import toc
 
 from huaytools.utils import get_logger
 
 logger = get_logger()
+
+
+class MarkdownUtils:
+
+    @staticmethod
+    def slugify(head):
+        return toc.slugify_unicode(head, '-')  # noqa
 
 
 class ReadmeUtils:
