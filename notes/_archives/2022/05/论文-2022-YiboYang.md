@@ -2,7 +2,7 @@ Do We Really Need a Learnable Classifier at the End of Deep Neural Network?
 ===
 <!--START_SECTION:badge-->
 
-![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2022-10-13%2001%3A56%3A19&color=yellowgreen&style=flat-square)
+![last modify](https://img.shields.io/static/v1?label=last%20modify&message=2025-07-08%2016%3A53%3A13&color=yellowgreen&style=flat-square)
 
 <!--END_SECTION:badge-->
 > https://arxiv.org/abs/2203.09081
