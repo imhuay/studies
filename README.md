@@ -53,17 +53,17 @@
 <!--START_SECTION:recent-->
 
 - [`2025-07-08` Transformer 常见问题 📌](notes/_archives/2022/05/Transformer常见问题.md)
-- [`2025-07-08` 预训练模型的轻量化微调](notes/_archives/2022/05/预训练模型轻量化微调.md)
-- [`2025-07-08` 需求评估模型](notes/_archives/2022/06/需求评估模型.md)
 - [`2025-07-08` 链表常用操作备忘](notes/_archives/2022/10/链表模板.md)
-- [`2025-07-08` 过拟合与正则化](notes/_archives/2022/05/过拟合与正则化.md)
 - [`2025-07-08` 语言模型](notes/_archives/2022/10/语言模型.md)
-- [`2025-07-08` 设计模式](notes/_archives/2022/09/设计模式.md)
-- [`2025-07-08` 装饰器的本质](notes/_archives/2022/05/python装饰器的本质.md)
-- [`2025-07-08` 类变量、成员变量，与注解](notes/_archives/2022/07/python类变量和成员变量的最佳实践.md)
-- [`2025-07-08` 知识图谱概述](notes/_archives/2022/07/知识图谱概述.md)
 - [`2025-07-08` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
 - [`2025-07-08` 电商搜索](notes/_archives/2022/12/电商搜索.md)
+- [`2025-07-08` 滑动窗口模板](notes/_archives/2022/10/滑动窗口模板.md)
+- [`2025-07-08` 树形递归技巧](notes/_archives/2022/10/树形递归技巧.md)
+- [`2025-07-08` 数仓基础概念](notes/_archives/2023/01/数仓基础.md)
+- [`2025-07-08` 搜索相关阅读](notes/_archives/2022/12/搜索相关阅读.md)
+- [`2025-07-08` 搜索指标](notes/_archives/2022/12/搜索指标.md)
+- [`2025-07-08` 搜索与 NLP](notes/_archives/2022/12/搜索与NLP.md)
+- [`2025-07-08` 基于 SQL 计算信息熵与信息增益](notes/_archives/2023/01/sql-计算信息熵与信息增益.md)
 
 
 <!--END_SECTION:recent-->
