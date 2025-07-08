@@ -9,7 +9,7 @@ on:
       - '.github/workflows/daily-waka.yml'
   workflow_dispatch: # for manual workflow trigger
   schedule:  # https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
-    - cron: '0 16 * * *' # runs at every 22:00 UTC, avoid to conflict with auto-update-readme.yml
+    - cron: '0 16 * * *' # runs at every 24:00 BeiJing Time, avoid to conflict with auto-update-readme.yml
 
 jobs:
   update-readme:

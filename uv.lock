@@ -3,6 +3,15 @@ revision = 2
 requires-python = ">=3.12"
 
 [[package]]
+name = "dowhen"
+version = "0.1.0"
+source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
+sdist = { url = "https://pypi.tuna.tsinghua.edu.cn/packages/38/19/61042b0a86170158940dd9aba60ce485922a8101d762b6b50b7cd65e91d0/dowhen-0.1.0.tar.gz", hash = "sha256:418804e52e715fd61f362c285eb0e8023819569fae85b592025d707246a1aea9", size = 21441, upload-time = "2025-06-26T23:13:31.089Z" }
+wheels = [
+    { url = "https://pypi.tuna.tsinghua.edu.cn/packages/1b/5a/faf4ca6fe29f3cfcc7c730245e47112d236e8f3bd3b23666975c3ddc287f/dowhen-0.1.0-py3-none-any.whl", hash = "sha256:723a39b838ac15a2d6d3a40bfcc21b672a6f760354a00a373c53c6b23de4cfb5", size = 19092, upload-time = "2025-06-26T23:13:29.73Z" },
+]
+
+[[package]]
 name = "fire"
 version = "0.7.0"
 source = { registry = "https://pypi.tuna.tsinghua.edu.cn/simple" }
@@ -16,12 +25,14 @@ name = "huaytools"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "dowhen" },
     { name = "fire" },
     { name = "pyyaml" },
 ]
 
 [package.metadata]
 requires-dist = [
+    { name = "dowhen", specifier = ">=0.1.0" },
     { name = "fire", specifier = ">=0.7.0" },
     { name = "pyyaml", specifier = ">=6.0.2" },
 ]

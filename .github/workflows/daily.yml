@@ -3,16 +3,15 @@ name: daily
 on:
   workflow_dispatch: # for manual workflow trigger
   schedule:
-    - cron: '0 20 * * *' # runs at every 20:00 UTC
-    # Setting it to 00:00 may cause a huge delay, probably because so many tasks are being executed at that point.
-  push:
-    branches: [ 'master' ]
-    paths:
-      - '.github/workflows/daily.yml'
-      - 'README.md'
-      - 'notes/**'
-      - 'algorithms/**'
-      #- 'src/readme/**'
+    # Setting it to 00:00 may cause a huge delay, probably because lots of tasks are being executed at that point.
+    - cron: '0 22 * * *' # runs at every 06:00 BeiJing Time
+#  push:
+#    branches: [ 'master' ]
+#    paths:
+#      - '.github/workflows/daily.yml'
+#      - 'README.md'
+#      - 'notes/**'
+#      - 'algorithms/**'
 
 jobs:
   update-readme:
