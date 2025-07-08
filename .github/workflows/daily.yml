@@ -1,0 +1,43 @@
+name: daily
+
+on:
+  workflow_dispatch: # for manual workflow trigger
+  schedule:
+    - cron: '0 20 * * *' # runs at every 20:00 UTC
+    # Setting it to 00:00 may cause a huge delay, probably because so many tasks are being executed at that point.
+  push:
+    branches: [ 'master' ]
+    paths:
+      - '.github/workflows/daily.yml'
+      - 'README.md'
+      - 'notes/**'
+      - 'algorithms/**'
+      #- 'src/readme/**'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # default 1, 0 indicates all history for all branches and tags.
+
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Update README
+      run: |
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        python scripts/daily.py
+        #git add -u
+        #git commit -m 'Auto-Update README'
+        #git push

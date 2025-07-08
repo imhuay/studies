@@ -1,0 +1,36 @@
+huaytools
+markdown
+PyGithub
+pyyaml
+
+## python>=3.8
+# tqdm
+# regex
+# beautifulsoup4
+# markdown
+# python-levenshtein
+# pyyaml
+# requests
+
+## machine learning
+# scikit-learn
+
+## nlp
+# jieba
+# hanlp
+# gensim
+# autophrasex
+
+## huggingface
+# accelerate
+# transformers
+# datasets
+# evaluate
+
+## keras
+# tensorflow
+# tensorflow-macos
+# tensorflow-metal
+# bert4keras --no-deps
+
+# pyspark

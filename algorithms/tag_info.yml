@@ -1,0 +1,97 @@
+-
+  tag_type: subject
+  priority: 1
+  tags:
+    牛客:
+    剑指Offer:
+      is_hot: true
+    LeetCode:
+    剑指Offer2:
+    程序员面试金典:
+    Collections:
+      aliases: [Coll, Collection]
+    牛客-华为机试:
+      aliases: [华为机试]
+    热门:
+      is_hot: true
+      aliases: [热门]
+    经典:
+      is_hot: true
+      aliases: [经典]
+    LeetCode Hot 100:
+      is_hot: true
+      aliases: [lc100]
+-
+  tag_type: level
+  priority: 2
+  tags:
+    简单:
+    中等:
+    困难:
+-
+  tag_type: base
+  priority: 3
+  tags:
+    模拟:
+    找规律:
+    数学:
+-
+  tag_type: data_struct
+  priority: 4
+  tags:
+    链表:
+      notes: [2022/10/链表模板.md]
+    字符串:
+    设计:
+    并查集:
+    图:
+    线段树/树状数组:
+      aliases: [线段树, 树状数组]
+    二叉树/树:
+      aliases: [二叉树, 树, 二叉搜索树]
+    栈/队列:
+      aliases: [栈, 队列]
+    数组/矩阵:
+      aliases: [数组, 矩阵, 二维数组]
+    堆/优先队列:
+      aliases: [堆, 优先队列]
+-
+  tag_type: algo
+  priority: 5
+  tags:
+    分治:
+    递归:
+      aliases: [回溯, 递归+回溯, 递归回溯]
+    动态规划:
+      is_hot: true
+      aliases: [dp, 记忆化搜索, 递推, dfs2dp]
+    排序:
+      aliases: [快排, 归并排序]
+    广度优先搜索:
+      aliases: [bfs]
+    深度优先搜索:
+      aliases: [dfs, dfs+回溯, dfs+剪枝]
+    二分查找:
+      aliases: [二分, 二分搜索, 二分法]
+-
+  tag_type: trick
+  priority: 6
+  tags:
+    滑动窗口:
+      notes: [2022/10/滑动窗口模板.md]
+    位运算:
+    贪心:
+    前缀和:
+    有限状态自动机:
+    双指针:
+      aliases: [快慢指针, 快慢双指针, 首尾双指针]
+    暴力递归与动态规划:
+      aliases: [dfs2dp]
+      notes: [2022/10/从暴力递归到动态规划.md]
+    单调栈/单调队列:
+      aliases: [单调栈, 单调队列]
+    哈希表(Hash):
+      aliases: [Hash, 哈希表]
+    树形递归:
+      aliases: [tree+dp, tree+dfs, 树形dp, TreeDp]
+      notes: [2022/10/树形递归技巧.md]
