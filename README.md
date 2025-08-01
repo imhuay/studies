@@ -52,8 +52,8 @@
 <!--START_SECTION:recent-->
 
 - [`2025-07-08` Transformer 常见问题 📌](notes/_archives/2022/05/Transformer常见问题.md)
+- [`2025-08-02` git-删除历史已提交文件](notes/_archives/2025/08/git-删除历史已提交文件.md)
 - [`2025-07-08` 链表常用操作备忘](notes/_archives/2022/10/链表模板.md)
-- [`2025-07-08` 语言模型](notes/_archives/2022/10/语言模型.md)
 - [`2025-07-08` 电商领域的 NER](notes/_archives/2022/12/电商NER.md)
 - [`2025-07-08` 电商搜索](notes/_archives/2022/12/电商搜索.md)
 - [`2025-07-08` 滑动窗口模板](notes/_archives/2022/10/滑动窗口模板.md)
