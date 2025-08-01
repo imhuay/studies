@@ -10,3 +10,5 @@ toc_id: tools
 
 
 ## Git
+
+- [删除历史已提交文件](./_archives/2025/08/git-删除历史已提交文件.md)
